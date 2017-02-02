@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="FarStar"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FarStar">
+				<Option output="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/FarStar.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 FarStar"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FarStar/fast">
+				<Option output="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/FarStar.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include/c++/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 FarStar/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/main.cc">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Blaster.cc">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Blaster.h">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Container.cc">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Container.h">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Equipment.cc">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Equipment.h">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Phaser.cc">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Phaser.h">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Ship.cc">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Ship.h">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Weapon.cc">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/src/Weapon.h">
+			<Option target="FarStar"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre/Documents/UQAM/principes_avances_des_langages_a_objets/FarStar/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
