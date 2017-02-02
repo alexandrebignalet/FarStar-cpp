@@ -4,20 +4,17 @@
 
 using testing::Eq;
 
-namespace {
-    class ClassDeclaration : public testing::Test {
-        public:
-        Phaser phaser;
-        ClassDeclaration() {
-            phaser;
-        }
-    };
-}
 
-TEST_F(ClassDeclaration, nameOfTheTest1) {
-    ASSERT_EQ("","");
-}
+class PhaserTest : public testing::Test {
+public:
 
-TEST_F(ClassDeclaration, nameOfTheTest2) {
-    ASSERT_EQ("", "");
+    Phaser *phaser;
+    PhaserTest() {
+        phaser = new Phaser(1,1);
+    }
+};
+
+TEST_F(PhaserTest, phaser_constructor_test) {
+    ASSERT_EQ(1, phaser->getVolume());
+    ASSERT_EQ(1, phaser->getMass());
 }

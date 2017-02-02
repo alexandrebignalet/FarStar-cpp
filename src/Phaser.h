@@ -11,10 +11,7 @@ class Phaser: virtual public Weapon {
 
 public:
 
-    Phaser(); // default
-    Phaser(const Phaser&); //copie
-    Phaser(double, double); //custom
-    ~Phaser(); // D'tor
+    Phaser(double mass, double volume);
 
 protected:
 
