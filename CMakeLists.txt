@@ -11,12 +11,12 @@ include_directories(lib/googletest-master/googlemock/include)
 
 set(SOURCE_FILES
         main.cc
-        src/Equipment.cc src/Equipment.h
-        src/Ship.cc src/Ship.h
-        src/Weapon.cc src/Weapon.h
-        src/Container.cc src/Container.h
+        src/Equipment.cc include/Equipment.h
+        src/Ship.cc include/Ship.h
+        src/Weapon.cc include/Weapon.h
+        src/Container.cc include/Container.h
         src/Phaser.cc src/Phaser.cc
-        src/Blaster.cc src/Blaster.h
+        src/Blaster.cc include/Blaster.h
         tests/PhaserTest.h tests/PhaserTest.cc
         )
 

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "../src/Phaser.h"
+#include "../include/Phaser.h"
 
 using testing::Eq;
 

@@ -2,7 +2,7 @@
 // Created by Alexandre on 01/02/2017.
 //
 
-#include "Blaster.h"
+#include "../include/Blaster.h"
 
 Blaster::Blaster(double volume, double mass, int gazLevel) {
     this->volume = volume;
