@@ -12,8 +12,6 @@ class Ship: public Equipment {
 
 protected:
     Ship(double, double);
-
-    void setLocation(Ship*);
 };
 
 

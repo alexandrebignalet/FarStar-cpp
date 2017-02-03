@@ -10,9 +10,6 @@
 class Container: virtual public Equipment {
 public:
     Container(double, double);
-
-protected:
-    void setLocation(Ship*);
 };
 
 

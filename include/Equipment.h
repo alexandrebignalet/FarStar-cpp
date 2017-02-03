@@ -22,7 +22,7 @@ protected:
     Equipment(double, double);
 
 public:
-    virtual void setLocation(Ship*) = 0;
+    virtual void setLocation(Ship*);
     virtual Ship* getLocation();
     virtual double getMass();
     double getVolume();
