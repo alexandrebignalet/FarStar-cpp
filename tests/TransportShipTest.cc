@@ -12,6 +12,7 @@ using testing::Test;
 class TransportShipTest : public Test {
 protected:
     virtual void SetUp() {
+
         transportShip1 = new TransportShip(12, 16, 10, 100);
         transportShip2 = new TransportShip(100, 200, 90, 1800);
         transportShip3 = new TransportShip(62, 1.4, 60, 120);
@@ -152,5 +153,4 @@ TEST_F(TransportShipTest, transport_ship_can_load_an_equipment_unequipped_from_a
 
 TEST_F(TransportShipTest, transport_ship_cannot_load_an_equipment_equipped_on_a_war_ship) {
     // TODO implement when warship will be
-
 }
