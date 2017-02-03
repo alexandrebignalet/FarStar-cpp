@@ -10,6 +10,10 @@
 
 class Ship: virtual public Equipment {
 
+protected:
+    Ship(double, double);
+
+    void setLocation(Ship*);
 };
 
 
