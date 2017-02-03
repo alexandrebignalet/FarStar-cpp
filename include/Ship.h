@@ -8,7 +8,7 @@
 
 #include "Equipment.h"
 
-class Ship: virtual public Equipment {
+class Ship: public Equipment {
 
 protected:
     Ship(double, double);

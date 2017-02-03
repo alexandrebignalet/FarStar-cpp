@@ -7,18 +7,26 @@
 
 #include "../include/Ship.h"
 #include "../include/TransportShip.h"
+#include <vector>
 
-class TransportShip: virtual public Ship{
+class TransportShip: public Ship {
 
 private:
+    vector<Equipment*> bay;
     double weightCapacity;
     double volumeCapacity;
+    double weightCapacityRemaining;
+    double volumeCapacityRemaining;
 
 public:
-    TransportShip(double volume, double mass, double weightCapacity, double volumeCapacity);
+    TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity);
 
     double getWeightCapacity();
     double getVolumeCapacity();
+    double getMass();
+    vector<Equipment*> const &getBay() const;
+    bool load(Equipment*);
+    bool unload(Equipment*);
 };
 
 
