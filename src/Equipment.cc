@@ -1,7 +1,3 @@
-//
-// Created by Alexandre on 01/02/2017.
-//
-
 #include "../include/Equipment.h"
 
 Equipment::Equipment(double volume, double mass) {
@@ -12,12 +8,4 @@ Equipment::Equipment(double volume, double mass) {
 
 Ship* Equipment::getLocation() {
     return this->location;
-}
-
-double Equipment::getMass() {
-    return this->mass;
-}
-
-double Equipment::getVolume() {
-    return this->volume;
 }

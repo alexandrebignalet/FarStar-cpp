@@ -20,13 +20,12 @@ protected:
     Ship* location;
 
     Equipment(double, double);
+
+    virtual Ship* getLocation();
+
     virtual void setLocation(Ship*) = 0;
-
-public:
-
-    double getMass();
-    double getVolume();
-    Ship* getLocation();
+    virtual double getMass() = 0;
+    virtual double getVolume() = 0;
 
 };
 
