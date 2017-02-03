@@ -19,12 +19,15 @@ protected:
     double volume;
     Ship* location;
 
+    Equipment(double, double);
+    virtual void setLocation(Ship*) = 0;
+
 public:
 
     double getMass();
     double getVolume();
-    virtual Ship* getLocation() = 0; // makes the class Abstract creating a pure abstract method
-    virtual void setLocation(Ship*) = 0;
+    Ship* getLocation();
+
 };
 
 

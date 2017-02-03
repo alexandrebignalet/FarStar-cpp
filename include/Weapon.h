@@ -7,8 +7,14 @@
 
 #include "Equipment.h"
 
-class Weapon: virtual public Equipment {
+class Weapon: public Equipment {
 
+protected:
+
+    Weapon(double, double);
+
+    void setLocation(Ship*);
+    bool isEquipped();
 };
 
 

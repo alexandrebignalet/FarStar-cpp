@@ -1,22 +1,7 @@
-//
-// Created by Alexandre on 01/02/2017.
-//
-
 #include "../include/Blaster.h"
 
-Blaster::Blaster(double volume, double mass, int gazLevel) {
-    this->volume = volume;
-    this->mass = mass;
-    this->location = NULL;
+Blaster::Blaster(double volume, double mass, int gazLevel) : Weapon(volume, mass) {
     this->gazLevel = gazLevel;
-}
-
-Ship* Blaster::getLocation() {
-    return this->location;
-}
-
-void Blaster::setLocation(Ship* ship) {
-    this->location = ship;
 }
 
 void Blaster::recharge() {

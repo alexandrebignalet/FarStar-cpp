@@ -1,5 +1,7 @@
-//
-// Created by Alexandre on 01/02/2017.
-//
-
 #include "../include/Container.h"
+
+Container::Container(double volume, double mass) : Equipment(volume, mass) {}
+
+void Container::setLocation(Ship* ship) {
+    this->location = ship; //TODO add TransportShip cast
+}

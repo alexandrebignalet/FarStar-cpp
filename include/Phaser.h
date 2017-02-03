@@ -10,13 +10,7 @@
 class Phaser: virtual public Weapon {
 
 public:
-
-    Phaser(double mass, double volume);
-
-protected:
-
-    Ship* getLocation();
-    void setLocation(Ship*);
+    Phaser(double, double);
 
 };
 

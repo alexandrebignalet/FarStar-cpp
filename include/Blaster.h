@@ -18,13 +18,9 @@ private:
 public:
 
     Blaster(double, double, int);
-    Ship* getLocation();
+
     void recharge();
     int getGazLevel();
-
-protected:
-
-    void setLocation(Ship*);
 
 };
 

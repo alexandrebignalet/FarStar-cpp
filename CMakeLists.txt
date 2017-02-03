@@ -12,14 +12,19 @@ include_directories(lib/googletest-master/googlemock/include)
 set(SOURCE_FILES
         main.cc
         src/Equipment.cc include/Equipment.h
-        src/Ship.cc include/Ship.h
+        include/Ship.h
         src/Weapon.cc include/Weapon.h
         src/Container.cc include/Container.h
-        src/Phaser.cc src/Phaser.cc
+        src/Phaser.cc include/Phaser.h
         src/Blaster.cc include/Blaster.h
-        tests/PhaserTest.h tests/PhaserTest.cc
         )
 
-add_executable(FarStar ${SOURCE_FILES})
+set(TEST_FILES
+        tests/PhaserTest.cc
+        tests/BlasterTest.cc
+        tests/ContainerTest.cc
+        )
+
+add_executable(FarStar ${SOURCE_FILES} ${TEST_FILES})
 
 target_link_libraries(FarStar gtest gtest_main)
