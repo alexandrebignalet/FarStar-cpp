@@ -1,6 +1,13 @@
 #include "../include/TransportShip.h"
+#include <stdexcept>
 
-TransportShip::TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity) : Ship(volume, mass) {
+TransportShip::TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity)
+        throw (invalid_argument): Ship(volume, mass)
+{
+    if (volume <= volumeCapacity) {
+        throw std::invalid_argument("Volume capacity and weight capacity must be lower than volume and weight respectively");
+    }
+
     this->volumeCapacity = volumeCapacity;
     this->weightCapacity = weightCapacity;
 

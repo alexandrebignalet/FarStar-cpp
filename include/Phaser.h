@@ -11,7 +11,6 @@ class Phaser: virtual public Weapon {
 
 public:
     Phaser(double, double);
-
 };
 
 

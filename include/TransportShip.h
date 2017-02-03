@@ -17,10 +17,8 @@ private:
     double volumeCapacity;
     double weightCapacityRemaining;
     double volumeCapacityRemaining;
-
 public:
-    TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity);
-
+    TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity) throw (invalid_argument);
     double getWeightCapacity();
     double getVolumeCapacity();
     double getWeightCapacityRemaining();

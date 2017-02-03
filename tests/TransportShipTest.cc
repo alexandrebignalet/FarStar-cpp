@@ -12,10 +12,9 @@ using testing::Test;
 class TransportShipTest : public Test {
 protected:
     virtual void SetUp() {
-
-        transportShip1 = new TransportShip(12, 16, 10, 100);
         transportShip2 = new TransportShip(100, 200, 90, 1800);
         transportShip3 = new TransportShip(62, 1.4, 60, 120);
+        transportShip1 = new TransportShip(12, 16, 10, 100);
     }
 
     // virtual void TearDown() {}
@@ -44,10 +43,12 @@ TEST_F(TransportShipTest, transportShip_constructor_test) {
     ASSERT_EQ(120, transportShip3->getWeightCapacity());
 }
 
-TEST_F(TransportShipTest, transport_ship_volume_should_be_greater_than_volume_capacity) {
-    ASSERT_GT(transportShip1->getVolume(), transportShip1->getVolumeCapacity());
-    ASSERT_GT(transportShip2->getVolume(), transportShip2->getVolumeCapacity());
-    ASSERT_GT(transportShip3->getVolume(), transportShip3->getVolumeCapacity());
+TEST_F(TransportShipTest, transport_ship_volume_must_be_gt_volume_capacity) {
+    try {
+        TransportShip *ts = new TransportShip(1,1,2,2);
+    } catch (const std::invalid_argument& ia) {
+        EXPECT_STREQ("Volume capacity and weight capacity must be lower than volume and weight respectively", ia.what());
+    }
 }
 
 TEST_F(TransportShipTest, transport_ship_load_should_return_false_if_volume_capacity_is_exceeded) {

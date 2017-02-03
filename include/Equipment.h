@@ -14,12 +14,10 @@ using namespace std;
 class Equipment {
 
 protected:
-
+    Equipment(double, double);
     double mass;
     double volume;
     Ship* location;
-
-    Equipment(double, double);
 
 public:
     virtual void setLocation(Ship*);
