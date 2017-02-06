@@ -4,6 +4,9 @@
 #include "../include/Container.h"
 #include "../include/Blaster.h"
 #include "../include/Phaser.h"
+#include "../include/WarShip.h"
+#include "../include/LightWeightShip.h"
+#include "../include/HeavyShip.h"
 
 using testing::Eq;
 using testing::Types;
@@ -32,6 +35,16 @@ TEST_F(TransportShipTest, transportShip_constructor_test) {
 
     ASSERT_EQ(60, transportShip3->getVolumeCapacity());
     ASSERT_EQ(120, transportShip3->getWeightCapacity());
+}
+
+TEST_F(TransportShipTest, transport_ship_cannot_set_his_location_to_warship) {
+    WarShip *ws = new WarShip(1,1,1);
+    HeavyShip *hs = new HeavyShip(1,1,1);
+    LightWeightShip *lws = new LightWeightShip(1,1,1);
+
+    ASSERT_THROW(this->transportShip1->setLocation(ws), invalid_argument);
+    ASSERT_THROW(this->transportShip1->setLocation(hs), invalid_argument);
+    ASSERT_THROW(this->transportShip1->setLocation(lws), invalid_argument);
 }
 
 TEST_F(TransportShipTest, transport_ship_volume_must_be_gt_volume_capacity) {
@@ -79,15 +92,6 @@ TEST_F(TransportShipTest, transport_ship_should_load_equipments_if_they_fit_well
 
     ASSERT_NO_THROW(transportShip3->load(transportShip1));
 
-    std::cout << transportShip1->getEquipments().size() + " elements in bay" << endl;
-    for (int unsigned i = 0 ; i < transportShip1->getEquipments().size() ; i++) {
-        if(Weapon* w = dynamic_cast<Weapon*>(transportShip1->getEquipments()[i]))
-        {
-            std::cout << "downcast from equipement to weapon successful\n";
-            std::cout << w->isEquipped() + ": equipped?" << endl;
-            cout << typeid(w).name() << endl;
-        }
-    }
     ASSERT_GT(transportShip1->getEquipments().size(), 0);
     ASSERT_EQ(transportShip1->getEquipments().size(), 2);
     ASSERT_GT(transportShip2->getEquipments().size(), 0);
@@ -188,10 +192,9 @@ TEST_F(TransportShipTest, transport_ship_set_his_location_to_equipment_loaded) {
     transportShip1->load(container);
     transportShip1->load(transportShip);
 
-// Impossible because base class is virtual ...
-//    ASSERT_EQ(transportShip1, (TransportShip*)phaser->getLocation());
-//    ASSERT_EQ(transportShip1, (TransportShip*)container->getLocation());
-//    ASSERT_EQ(transportShip1, (TransportShip*)transportShip->getLocation());
+    ASSERT_EQ(transportShip1, dynamic_cast<TransportShip*>(phaser->getLocation()));
+    ASSERT_EQ(transportShip1, dynamic_cast<TransportShip*>(container->getLocation()));
+    ASSERT_EQ(transportShip1, dynamic_cast<TransportShip*>(transportShip->getLocation()));
 
     ASSERT_EQ((Ship*)transportShip1, phaser->getLocation());
     ASSERT_EQ((Ship*)transportShip1, container->getLocation());
@@ -218,10 +221,23 @@ TEST_F(TransportShipTest, transport_ship_set_NULL_location_to_equipment_unloaded
 
 
 TEST_F(TransportShipTest, transport_ship_can_load_an_equipment_unequipped_from_a_war_ship) {
-    // TODO implement when warship will be
+    WarShip *ws = new WarShip(1,1,1);
+    Blaster *b = new Blaster(1,1,45);
 
+    EXPECT_NO_THROW(ws->load(b));
+    EXPECT_TRUE(b->isEquipped());
+    EXPECT_NO_THROW(ws->unload(b));
+
+    ASSERT_NO_THROW(this->transportShip2->load(b));
+    ASSERT_EQ(this->transportShip2->getEquipments().size(), 1);
 }
 
 TEST_F(TransportShipTest, transport_ship_cannot_load_an_equipment_equipped_on_a_war_ship) {
-    // TODO implement when warship will be
+    WarShip *ws = new WarShip(1,1,1);
+    Blaster *b = new Blaster(1,1,45);
+
+    EXPECT_NO_THROW(ws->load(b));
+    EXPECT_TRUE(b->isEquipped());
+
+    ASSERT_THROW(this->transportShip2->load(b), invalid_argument);
 }

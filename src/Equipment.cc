@@ -4,7 +4,6 @@
 Equipment::Equipment(double volume, double mass): location(NULL) {
     this->volume = volume;
     this->mass = mass;
-//    this->location = NULL;
 }
 
 Ship* Equipment::getLocation() {

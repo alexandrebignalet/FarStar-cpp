@@ -1,4 +1,5 @@
 #include "../include/TransportShip.h"
+#include "../include/WarShip.h"
 #include <stdexcept>
 
 TransportShip::TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity)
@@ -13,6 +14,13 @@ TransportShip::TransportShip(double volume, double mass, double volumeCapacity, 
 
     this->weightCapacityRemaining = weightCapacity;
     this->volumeCapacityRemaining = volumeCapacity;
+}
+
+void TransportShip::setLocation(Ship* ship) throw (invalid_argument) {
+    if (dynamic_cast<WarShip*>(ship) != NULL) {
+        throw invalid_argument("TransportShip cannot be located elsewhere than in a TransportShip.");
+    }
+    this->location = ship;
 }
 
 double TransportShip::getWeightCapacity() {
