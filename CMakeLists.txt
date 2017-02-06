@@ -18,7 +18,7 @@ set(SOURCE_FILES
         src/Phaser.cc include/Phaser.h
         src/Blaster.cc include/Blaster.h
         src/TransportShip.cc include/TransportShip.h
-        src/WarShip.cc include/WarShip.h src/LightWeightShip.cc include/LightWeightShip.h src/HybridShip.cc include/HybridShip.h)
+        src/WarShip.cc include/WarShip.h src/LightWeightShip.cc include/LightWeightShip.h src/HybridShip.cc include/HybridShip.h src/HeavyShip.cc include/HeavyShip.h)
 
 set(TEST_FILES
         tests/EquipmentTest.cc
