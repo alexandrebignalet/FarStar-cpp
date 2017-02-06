@@ -29,53 +29,43 @@ double TransportShip::getVolumeCapacityRemaining() {
     return this->volumeCapacityRemaining;
 }
 
-double TransportShip::getMass(){
-    double totalMass = this->mass;
-
-    for(int unsigned i = 0; i < this->getBay().size(); i++){
-        totalMass += this->getBay()[i]->getMass();
+void TransportShip::load(Equipment* equipment) throw (invalid_argument) {
+    if ( equipment == this ) {
+        throw std::invalid_argument("TransportShip cannot load himself.");
+    }
+    if ( equipment->getLocation() != NULL ) {
+        throw std::invalid_argument("Equipment already loaded elsewhere.");
     }
 
-    return totalMass;
-}
+    if( equipment->getMass() > this->getWeightCapacityRemaining() ) {
+        throw std::invalid_argument("Not enough weight capacity remaining to load this equipment.");
+    }
 
-vector<Equipment*> const &TransportShip::getBay() const{
-    return this->bay;
-}
-
-bool TransportShip::load(Equipment* equipment) {
-    if (
-        equipment == this ||
-        equipment->getLocation() != NULL ||
-        equipment->getMass() > this->getWeightCapacityRemaining() ||
-        equipment->getVolume() > this->getVolumeCapacityRemaining()
-    ) {
-        return false;
+    if( equipment->getVolume() > this->getVolumeCapacityRemaining() ) {
+        throw std::invalid_argument("Not enough volume capacity remaining to load this equipment.");
     }
 
     this->weightCapacityRemaining -= equipment->getMass();
     this->volumeCapacityRemaining -= equipment->getVolume();
 
-    this->bay.push_back(equipment);
+    this->equipments.push_back(equipment);
     equipment->setLocation(this);
-
-    return true;
 }
 
-bool TransportShip::unload(Equipment* equipment){
-    for(int unsigned i = 0 ; i < this->getBay().size() ; i++) {
-        if (this->getBay()[i] == equipment) {
+void TransportShip::unload(Equipment* equipment) throw (invalid_argument) {
+    for(int unsigned i = 0 ; i < this->getEquipments().size() ; i++) {
+        if (this->getEquipments()[i] == equipment) {
 
-            this->bay.erase(this->bay.begin()+i);
+            this->equipments.erase(this->equipments.begin()+i);
 
             equipment->setLocation(NULL);
 
             this->weightCapacityRemaining += equipment->getMass();
             this->volumeCapacityRemaining += equipment->getVolume();
 
-            return true;
+            return;
         }
     }
 
-    return false;
+    throw invalid_argument("Equipment not loaded btw cannot be unloaded.");
 }

@@ -7,7 +7,7 @@
 
 #include "Weapon.h"
 
-class Phaser: virtual public Weapon {
+class Phaser: public Weapon {
 
 public:
     Phaser(double, double);

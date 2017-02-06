@@ -7,7 +7,7 @@
 
 #include "Equipment.h"
 
-class Container: virtual public Equipment {
+class Container: public Equipment {
 public:
     Container(double, double);
 };

@@ -1,7 +1,11 @@
 #include "../include/Blaster.h"
 
-Blaster::Blaster(double volume, double mass, int gazLevel) : Weapon(volume, mass) {
-    this->gazLevel = gazLevel;
+Blaster::Blaster(double volume, double mass, double gazLevel) throw (invalid_argument) : Weapon(volume, mass) {
+    if ( gazLevel > 100 || gazLevel < 0 ) {
+        throw invalid_argument("gaz level should be set between 0 and 100");
+    } else {
+        this->gazLevel = gazLevel;
+    }
 }
 
 void Blaster::recharge() {

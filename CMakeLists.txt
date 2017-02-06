@@ -17,13 +17,14 @@ set(SOURCE_FILES
         src/Container.cc include/Container.h
         src/Phaser.cc include/Phaser.h
         src/Blaster.cc include/Blaster.h
-        src/TransportShip.cc include/TransportShip.h)
+        src/TransportShip.cc include/TransportShip.h
+        src/WarShip.cc include/WarShip.h src/LightWeightShip.cc include/LightWeightShip.h src/HybridShip.cc include/HybridShip.h)
 
 set(TEST_FILES
-        tests/PhaserTest.cc
+        tests/EquipmentTest.cc
         tests/BlasterTest.cc
-        tests/ContainerTest.cc
-        tests/TransportShipTest.cc)
+        tests/TransportShipTest.cc
+        tests/WarShipTest.cc tests/LightWeightShipTest.cc tests/HybridShipTest.cc)
 
 add_executable(FarStar ${SOURCE_FILES} ${TEST_FILES})
 

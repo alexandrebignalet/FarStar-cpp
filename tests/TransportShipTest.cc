@@ -24,58 +24,47 @@ protected:
 };
 
 TEST_F(TransportShipTest, transportShip_constructor_test) {
-    ASSERT_EQ(12, transportShip1->getVolume());
-    ASSERT_EQ(16, transportShip1->getMass());
-    ASSERT_EQ(NULL, transportShip1->getLocation());
     ASSERT_EQ(10, transportShip1->getVolumeCapacity());
     ASSERT_EQ(100, transportShip1->getWeightCapacity());
 
-    ASSERT_EQ(100, transportShip2->getVolume());
-    ASSERT_EQ(200, transportShip2->getMass());
-    ASSERT_EQ(NULL, transportShip2->getLocation());
     ASSERT_EQ(90, transportShip2->getVolumeCapacity());
     ASSERT_EQ(1800, transportShip2->getWeightCapacity());
 
-    ASSERT_EQ(62, transportShip3->getVolume());
-    ASSERT_EQ(1.4, transportShip3->getMass());
-    ASSERT_EQ(NULL, transportShip3->getLocation());
     ASSERT_EQ(60, transportShip3->getVolumeCapacity());
     ASSERT_EQ(120, transportShip3->getWeightCapacity());
 }
 
 TEST_F(TransportShipTest, transport_ship_volume_must_be_gt_volume_capacity) {
-    try {
-        TransportShip *ts = new TransportShip(1,1,2,2);
-    } catch (const std::invalid_argument& ia) {
-        EXPECT_STREQ("Volume capacity and weight capacity must be lower than volume and weight respectively", ia.what());
-    }
+    ASSERT_THROW(new TransportShip(1,1,2,2), invalid_argument);
 }
 
-TEST_F(TransportShipTest, transport_ship_load_should_return_false_if_volume_capacity_is_exceeded) {
+TEST_F(TransportShipTest, transport_ship_load_should_throw_invalid_argument_exception_if_volume_capacity_is_exceeded) {
     Container *container = new Container(50, 10);
     Blaster *blaster = new Blaster(1,1,45);
 
-    ASSERT_FALSE(transportShip1->load(container));
-    ASSERT_TRUE(transportShip1->load(blaster));
+    ASSERT_THROW(transportShip1->load(container), invalid_argument);
+
+    ASSERT_NO_THROW(transportShip1->load(blaster));
 }
 
-TEST_F(TransportShipTest, transport_ship_load_should_return_false_if_weight_capacity_is_exceeded) {
+TEST_F(TransportShipTest, transport_ship_load_should_throw_invalid_argument_exception_if_weight_capacity_is_exceeded) {
     Container *container = new Container(50, 1000);
     Blaster *blaster = new Blaster(1,1,45);
 
-    ASSERT_FALSE(transportShip1->load(container));
-    ASSERT_TRUE(transportShip1->load(blaster));
+    ASSERT_THROW(transportShip1->load(container), invalid_argument);
+
+    ASSERT_NO_THROW(transportShip1->load(blaster););
 }
 
-TEST_F(TransportShipTest, transport_ship_load_should_return_false_if_it_try_to_load_himself) {
-    ASSERT_FALSE(transportShip1->load(transportShip1));
+TEST_F(TransportShipTest, transport_ship_load_should_throw_invalid_argument_exception_if_it_try_to_load_himself) {
+    ASSERT_THROW(transportShip1->load(transportShip1), invalid_argument);
 }
 
-TEST_F(TransportShipTest, transport_ship_load_should_return_false_if_equipment_already_loaded_elsewhere) {
+TEST_F(TransportShipTest, transport_ship_load_should_throw_invalid_argument_exception_if_equipment_already_loaded_elsewhere) {
     Weapon *riffle = new Blaster(1,1,46);
 
     transportShip3->load(riffle);
-    ASSERT_FALSE(transportShip1->load(riffle));
+    ASSERT_THROW(transportShip1->load(riffle), invalid_argument);
 }
 
 TEST_F(TransportShipTest, transport_ship_should_load_equipments_if_they_fit_well) {
@@ -83,19 +72,28 @@ TEST_F(TransportShipTest, transport_ship_should_load_equipments_if_they_fit_well
     Blaster *blaster = new Blaster(1, 1, 50);
     Phaser *phaser = new Phaser(1, 1);
 
-    transportShip1->load(blaster);
-    transportShip1->load(phaser);
+    ASSERT_NO_THROW(transportShip1->load(blaster));
+    ASSERT_NO_THROW(transportShip1->load(phaser));
 
-    transportShip2->load(container);
+    ASSERT_NO_THROW(transportShip2->load(container));
 
-    transportShip3->load(transportShip1);
+    ASSERT_NO_THROW(transportShip3->load(transportShip1));
 
-    ASSERT_GT(transportShip1->getBay().size(), 0);
-    ASSERT_EQ(transportShip1->getBay().size(), 2);
-    ASSERT_GT(transportShip2->getBay().size(), 0);
-    ASSERT_EQ(transportShip2->getBay().size(), 1);
-    ASSERT_GT(transportShip3->getBay().size(), 0);
-    ASSERT_EQ(transportShip3->getBay().size(), 1);
+    std::cout << transportShip1->getEquipments().size() + " elements in bay" << endl;
+    for (int unsigned i = 0 ; i < transportShip1->getEquipments().size() ; i++) {
+        if(Weapon* w = dynamic_cast<Weapon*>(transportShip1->getEquipments()[i]))
+        {
+            std::cout << "downcast from equipement to weapon successful\n";
+            std::cout << w->isEquipped() + ": equipped?" << endl;
+            cout << typeid(w).name() << endl;
+        }
+    }
+    ASSERT_GT(transportShip1->getEquipments().size(), 0);
+    ASSERT_EQ(transportShip1->getEquipments().size(), 2);
+    ASSERT_GT(transportShip2->getEquipments().size(), 0);
+    ASSERT_EQ(transportShip2->getEquipments().size(), 1);
+    ASSERT_GT(transportShip3->getEquipments().size(), 0);
+    ASSERT_EQ(transportShip3->getEquipments().size(), 1);
 }
 
 TEST_F(TransportShipTest, transport_ship_mass_should_be_his_own_plus_each_of_load_equipment_mass) {
@@ -117,10 +115,10 @@ TEST_F(TransportShipTest, transport_ship_bay_size_should_decrease_by_1_after_1_u
     Container *container = new Container(10, 16);
     transportShip1->load(container);
 
-    ASSERT_EQ(transportShip1->getBay().size(), 1);
+    ASSERT_EQ(transportShip1->getEquipments().size(), 1);
 
     transportShip1->unload(container);
-    ASSERT_EQ(transportShip1->getBay().size(), 0);
+    ASSERT_EQ(transportShip1->getEquipments().size(), 0);
 }
 
 TEST_F(TransportShipTest, transport_ship_can_load_an_equipment_unload_from_an_other_transport_ship) {
@@ -129,7 +127,7 @@ TEST_F(TransportShipTest, transport_ship_can_load_an_equipment_unload_from_an_ot
 
     transportShip1->unload(container);
 
-    ASSERT_TRUE(transportShip2->load(container));
+    ASSERT_NO_THROW(transportShip2->load(container));
 }
 
 TEST_F(TransportShipTest, transport_ship_get_more_weight_and_volume_capacity_after_unloading) {
@@ -146,6 +144,78 @@ TEST_F(TransportShipTest, transport_ship_get_more_weight_and_volume_capacity_aft
     ASSERT_GT(vcUnloaded, vcLoaded);
     ASSERT_GT(wcUnloaded, wcLoaded);
 }
+
+TEST_F(TransportShipTest, transport_ship_should_throw_invalid_argument_exception_if_trying_to_unload_an_equipment_not_loaded) {
+    Container *container = new Container(1,1);
+    ASSERT_THROW(transportShip1->unload(container), invalid_argument);
+}
+
+TEST_F(TransportShipTest, transport_ship_should_loose_some_weight_and_get_some_volume_and_weight_capacity_remaining_after_unloading) {
+    Container *container = new Container(1,1);
+    transportShip1->load(container);
+
+    double baseWeight = transportShip1->getMass();
+    double baseWeightCapRemain = transportShip1->getWeightCapacityRemaining();
+    double baseVolumeCapRemain = transportShip1->getVolumeCapacityRemaining();
+
+    transportShip1->unload(container);
+
+    ASSERT_LT(transportShip1->getMass(), baseWeight);
+    ASSERT_GT(transportShip1->getWeightCapacityRemaining(), baseWeightCapRemain);
+    ASSERT_GT(transportShip1->getVolumeCapacityRemaining(), baseVolumeCapRemain);
+}
+
+TEST_F(TransportShipTest, transport_ship_should_get_some_weight_and_loose_some_volume_and_weight_capacity_remaining_after_loading) {
+    Container *container = new Container(1,1);
+
+    double baseWeight = transportShip1->getMass();
+    double baseWeightCapRemain = transportShip1->getWeightCapacityRemaining();
+    double baseVolumeCapRemain = transportShip1->getVolumeCapacityRemaining();
+
+    transportShip1->load(container);
+
+    ASSERT_GT(transportShip1->getMass(), baseWeight);
+    ASSERT_LT(transportShip1->getWeightCapacityRemaining(), baseWeightCapRemain);
+    ASSERT_LT(transportShip1->getVolumeCapacityRemaining(), baseVolumeCapRemain);
+}
+
+TEST_F(TransportShipTest, transport_ship_set_his_location_to_equipment_loaded) {
+    Weapon *phaser = new Phaser(1,1);
+    Container *container = new Container(1,1);
+    Ship *transportShip = new TransportShip(2,2,1,4);
+
+    transportShip1->load(phaser);
+    transportShip1->load(container);
+    transportShip1->load(transportShip);
+
+// Impossible because base class is virtual ...
+//    ASSERT_EQ(transportShip1, (TransportShip*)phaser->getLocation());
+//    ASSERT_EQ(transportShip1, (TransportShip*)container->getLocation());
+//    ASSERT_EQ(transportShip1, (TransportShip*)transportShip->getLocation());
+
+    ASSERT_EQ((Ship*)transportShip1, phaser->getLocation());
+    ASSERT_EQ((Ship*)transportShip1, container->getLocation());
+    ASSERT_EQ((Ship*)transportShip1, transportShip->getLocation());
+}
+
+TEST_F(TransportShipTest, transport_ship_set_NULL_location_to_equipment_unloaded) {
+    Weapon *phaser = new Phaser(1,1);
+    Container *container = new Container(1,1);
+    Ship *transportShip = new TransportShip(2,2,1,4);
+
+    transportShip1->load(phaser);
+    transportShip1->load(container);
+    transportShip1->load(transportShip);
+
+    transportShip1->unload(phaser);
+    transportShip1->unload(container);
+    transportShip1->unload(transportShip);
+
+    ASSERT_EQ(NULL, phaser->getLocation());
+    ASSERT_EQ(NULL, container->getLocation());
+    ASSERT_EQ(NULL, transportShip->getLocation());
+}
+
 
 TEST_F(TransportShipTest, transport_ship_can_load_an_equipment_unequipped_from_a_war_ship) {
     // TODO implement when warship will be

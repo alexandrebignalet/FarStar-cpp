@@ -10,13 +10,13 @@
 class Weapon: public Equipment {
 
 protected:
+    bool equipped;
 
-    Weapon(double, double);
+    Weapon(double volume, double mass);
 
 public:
-
-    void setLocation(Ship*);
     bool isEquipped();
+    void setEquipped(bool);
 };
 
 

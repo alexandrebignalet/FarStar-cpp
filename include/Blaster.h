@@ -7,17 +7,17 @@
 
 #include "Weapon.h"
 
-class Blaster: virtual public Weapon {
+class Blaster: public Weapon {
 
     static const int MAX_PERCENT_GAZ_LEVEL = 100;
 
 private:
 
-    int gazLevel;
+    double gazLevel;
 
 public:
 
-    Blaster(double, double, int);
+    Blaster(double volume, double mass, double gazLevel) throw (invalid_argument);
 
     void recharge();
     int getGazLevel();

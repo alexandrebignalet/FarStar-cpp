@@ -1,10 +1,10 @@
 #include "../include/Equipment.h"
 #include "../include/TransportShip.h"
 
-Equipment::Equipment(double volume, double mass) {
+Equipment::Equipment(double volume, double mass): location(NULL) {
     this->volume = volume;
     this->mass = mass;
-    this->location = NULL;
+//    this->location = NULL;
 }
 
 Ship* Equipment::getLocation() {
@@ -12,7 +12,7 @@ Ship* Equipment::getLocation() {
 }
 
 void Equipment::setLocation(Ship* ship) {
-    this->location = (TransportShip*)ship;
+    this->location = ship;
 }
 
 double Equipment::getMass() {
