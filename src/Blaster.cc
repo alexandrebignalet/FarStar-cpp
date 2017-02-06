@@ -12,6 +12,6 @@ void Blaster::recharge() {
     this->gazLevel = Blaster::MAX_PERCENT_GAZ_LEVEL;
 }
 
-int Blaster::getGazLevel() {
+double Blaster::getGazLevel() {
     return this->gazLevel;
 }

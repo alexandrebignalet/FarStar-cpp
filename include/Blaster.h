@@ -20,7 +20,7 @@ public:
     Blaster(double volume, double mass, double gazLevel) throw (invalid_argument);
 
     void recharge();
-    int getGazLevel();
+    double getGazLevel();
 
 };
 
