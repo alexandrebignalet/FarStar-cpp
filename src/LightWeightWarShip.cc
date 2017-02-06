@@ -1,15 +1,11 @@
-//
-// Created by alexandre on 2/5/17.
-//
-
-#include "../include/LightWeightShip.h"
+#include "../include/LightWeightWarShip.h"
 #include "../include/Phaser.h"
 
-LightWeightShip::LightWeightShip(double volume, double mass, int nbMaxWeapons) : WarShip(volume, mass, nbMaxWeapons), Ship(volume, mass) {}
+LightWeightWarShip::LightWeightWarShip(double volume, double mass, int nbMaxWeapons) : WarShip(volume, mass, nbMaxWeapons), Ship(volume, mass) {}
 
-void LightWeightShip::load(Equipment* equipment) throw (invalid_argument) {
+void LightWeightWarShip::load(Equipment* equipment) throw (invalid_argument) {
     if (dynamic_cast<Phaser*>(equipment) == NULL) {
-        throw invalid_argument("LightWeightShip can only load Phaser Weapon");
+        throw invalid_argument("LightWeightWarShip can only load Phaser Weapon");
     }
 
     if ( equipment->getLocation() != NULL) {

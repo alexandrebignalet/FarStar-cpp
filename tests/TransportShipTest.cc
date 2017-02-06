@@ -5,8 +5,8 @@
 #include "../include/Blaster.h"
 #include "../include/Phaser.h"
 #include "../include/WarShip.h"
-#include "../include/LightWeightShip.h"
-#include "../include/HeavyShip.h"
+#include "../include/LightWeightWarShip.h"
+#include "../include/HeavyWarShip.h"
 
 using testing::Eq;
 using testing::Types;
@@ -39,8 +39,8 @@ TEST_F(TransportShipTest, transportShip_constructor_test) {
 
 TEST_F(TransportShipTest, transport_ship_cannot_set_his_location_to_warship) {
     WarShip *ws = new WarShip(1,1,1);
-    HeavyShip *hs = new HeavyShip(1,1,1);
-    LightWeightShip *lws = new LightWeightShip(1,1,1);
+    HeavyWarShip *hs = new HeavyWarShip(1,1,1);
+    LightWeightWarShip *lws = new LightWeightWarShip(1,1,1);
 
     ASSERT_THROW(this->transportShip1->setLocation(ws), invalid_argument);
     ASSERT_THROW(this->transportShip1->setLocation(hs), invalid_argument);
