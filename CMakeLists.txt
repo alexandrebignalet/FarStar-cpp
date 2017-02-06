@@ -24,7 +24,7 @@ set(TEST_FILES
         tests/EquipmentTest.cc
         tests/BlasterTest.cc
         tests/TransportShipTest.cc
-        tests/WarShipTest.cc tests/LightWeightShipTest.cc tests/HybridShipTest.cc)
+        tests/WarShipTest.cc tests/LightWeightShipTest.cc tests/HybridShipTest.cc tests/HeavyShipTest.cc)
 
 add_executable(FarStar ${SOURCE_FILES} ${TEST_FILES})
 
