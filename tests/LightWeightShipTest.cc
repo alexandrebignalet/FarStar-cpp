@@ -12,19 +12,17 @@ class LightWeightShipTest : public Test {
 protected:
     virtual void SetUp() {
 
-        warShip = new WarShip(12, 16, 3);
         lightWeightShip = new LightWeightShip(12, 16, 3);
     }
 
     // virtual void TearDown() {}
     LightWeightShip *lightWeightShip;
-    WarShip *warShip;
 };
 
 TEST_F(LightWeightShipTest, light_weight_ship_should_only_load_phasers) {
     Phaser *p = new Phaser(1,1);
     Blaster *b = new Blaster(1,1,56);
 
-    ASSERT_NO_THROW(lightWeightShip->load(p));
-    ASSERT_THROW(lightWeightShip->load(b), invalid_argument);
+    ASSERT_NO_THROW(this->lightWeightShip->load(p));
+    ASSERT_THROW(this->lightWeightShip->load(b), invalid_argument);
 }

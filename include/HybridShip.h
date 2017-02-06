@@ -15,6 +15,8 @@ public:
     HybridShip(double volume, double mass, double volumeCapacity, double weightCapacity, int nbMaxWeapons);
 
     void equip(Equipment*) throw (invalid_argument);
+    void unequip(Equipment*) throw (invalid_argument);
+
     void load(Equipment*) throw (invalid_argument);
     void unload(Equipment*) throw (invalid_argument);
 };

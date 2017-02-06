@@ -11,6 +11,10 @@ void HybridShip::equip(Equipment* equipment) throw (invalid_argument) {
     WarShip::load(equipment);
 }
 
+void HybridShip::unequip(Equipment* equipment) throw (invalid_argument) {
+    WarShip::unload(equipment);
+}
+
 void HybridShip::load(Equipment* equipment) throw (invalid_argument) {
     TransportShip::load(equipment);
 }
