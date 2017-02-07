@@ -17,6 +17,7 @@ protected:
     double mass;
     double volume;
     Ship* location;
+    string name;
 
     Equipment(double volume, double mass);
 
@@ -25,6 +26,7 @@ public:
     virtual void setLocation(Ship*);
     virtual Ship* getLocation();
     virtual double getMass();
+    string getName();
     double getVolume();
 };
 

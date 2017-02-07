@@ -9,9 +9,11 @@
 #include "WarShip.h"
 #include "TransportShip.h"
 
+//[[deprecated("The actual norm doesn't use those types of ships anymore")]]
 class HybridShip: public TransportShip, public WarShip {
 
 public:
+    static int nbInstances;
     HybridShip(double volume, double mass, double volumeCapacity, double weightCapacity, int nbMaxWeapons);
 
     void equip(Equipment*) throw (invalid_argument);

@@ -10,6 +10,7 @@
 class Phaser: public Weapon {
 
 public:
+    static int nbInstances;
     Phaser(double, double);
 };
 

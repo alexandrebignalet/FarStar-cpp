@@ -4,4 +4,8 @@
 
 #include "../include/Phaser.h"
 
-Phaser::Phaser(double volume, double mass) : Weapon(volume, mass){}
+int Phaser::nbInstances = 0;
+
+Phaser::Phaser(double volume, double mass) : Weapon(volume, mass){
+    this->name = "P-" + to_string(++Phaser::nbInstances);
+}

@@ -4,8 +4,12 @@
 
 #include "../include/HybridShip.h"
 
+int HybridShip::nbInstances = 0;
+
 HybridShip::HybridShip(double volume, double mass, double volumeCapacity, double weightCapacity, int nbMaxWeapons)
-        : WarShip(volume, mass, nbMaxWeapons), TransportShip(volume, mass, volumeCapacity, weightCapacity), Ship(volume, mass) {}
+        : WarShip(volume, mass, nbMaxWeapons), TransportShip(volume, mass, volumeCapacity, weightCapacity), Ship(volume, mass) {
+    this->name = "MR-"+ to_string(++HybridShip::nbInstances);
+}
 
 void HybridShip::equip(Equipment* equipment) throw (invalid_argument) {
     WarShip::load(equipment);

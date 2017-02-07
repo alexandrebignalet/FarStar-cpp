@@ -1,6 +1,8 @@
 #include "../include/TransportShip.h"
 #include "../include/WarShip.h"
+#include "../include/HybridShip.h"
 #include <stdexcept>
+int TransportShip::nbInstances = 0;
 
 TransportShip::TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity)
         throw (invalid_argument): Ship(volume, mass)
@@ -14,18 +16,31 @@ TransportShip::TransportShip(double volume, double mass, double volumeCapacity, 
 
     this->weightCapacityRemaining = weightCapacity;
     this->volumeCapacityRemaining = volumeCapacity;
+
+    this->name = "VT-" + to_string(++TransportShip::nbInstances);
 }
 
 void TransportShip::setLocation(Ship* ship) throw (invalid_argument) {
-    if (dynamic_cast<WarShip*>(ship) != NULL) {
-        throw invalid_argument("TransportShip cannot be located elsewhere than in a TransportShip.");
+    if (dynamic_cast<HybridShip*>(ship) != NULL || dynamic_cast<TransportShip*>(ship) != NULL || ship == NULL) {
+        this->location = ship;
+        return;
     }
-    this->location = ship;
+    throw invalid_argument("TransportShip cannot be located elsewhere than in a TransportShip or an HybridShip.");
+}
+TransportShip* TransportShip::getLocation() {
+    TransportShip* t = dynamic_cast<TransportShip*>(this->location);
+    HybridShip* hs = dynamic_cast<HybridShip*>(this->location);
+
+    if (t != NULL) {
+        return t;
+    }
+    return hs;
 }
 
 double TransportShip::getWeightCapacity() {
     return this->weightCapacity;
 }
+
 double TransportShip::getVolumeCapacity() {
     return this->volumeCapacity;
 }

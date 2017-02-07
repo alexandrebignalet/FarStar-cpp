@@ -1,3 +1,7 @@
 #include "../include/Container.h"
 
-Container::Container(double volume, double mass) : Equipment(volume, mass) {}
+int Container::nbInstances = 0;
+
+Container::Container(double volume, double mass) : Equipment(volume, mass) {
+    this->name = "C-" + to_string(++Container::nbInstances);
+}

@@ -21,3 +21,7 @@ double Equipment::getMass() {
 double Equipment::getVolume() {
     return this->volume;
 }
+
+string Equipment::getName() {
+    return this->name;
+}

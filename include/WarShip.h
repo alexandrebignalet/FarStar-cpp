@@ -15,7 +15,7 @@ private:
     int nbMaxWeapons;
 
 public:
-
+    static int nbInstances;
     WarShip(double volume, double mass, int nbMaxWeapons);
     int getNbMaxWeapons();
     virtual void load(Equipment*) throw (invalid_argument);

@@ -9,6 +9,7 @@
 
 class Container: public Equipment {
 public:
+    static int nbInstances;
     Container(double, double);
 };
 
