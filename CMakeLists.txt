@@ -35,4 +35,4 @@ set(TEST_FILES
 
 add_executable(FarStar ${SOURCE_FILES} ${TEST_FILES})
 
-target_link_libraries(FarStar gtest gtest_main)
+target_link_libraries(FarStar gtest)
