@@ -5,14 +5,13 @@
 
 class Blaster: public Weapon {
 
-    static const int MAX_PERCENT_GAZ_LEVEL = 100;
-
 private:
 
     double gazLevel;
-
 public:
+    static const int MAX_PERCENT_GAZ_LEVEL = 100;
     static int nbInstances;
+
     Blaster(double volume, double mass, double gazLevel) throw (invalid_argument);
 
     void recharge();

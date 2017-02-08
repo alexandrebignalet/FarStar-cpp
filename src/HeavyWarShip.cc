@@ -1,3 +1,3 @@
 #include "../include/HeavyWarShip.h"
 
-HeavyWarShip::HeavyWarShip(double volume, double mass, int nbMaxArmes): WarShip(volume, mass, nbMaxArmes), Ship(volume, mass) {}
+HeavyWarShip::HeavyWarShip(double volume, double mass, int nbMaxWeapons): WarShip(volume, mass, nbMaxWeapons), Ship(volume, mass) {}

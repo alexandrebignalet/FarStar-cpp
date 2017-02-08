@@ -9,9 +9,10 @@
 
 class Weapon: public Equipment {
 
-protected:
+private:
     bool equipped;
 
+protected:
     Weapon(double volume, double mass);
 
 public:

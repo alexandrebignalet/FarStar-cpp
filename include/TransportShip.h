@@ -10,7 +10,7 @@
 
 class TransportShip: public virtual Ship {
 
-protected:
+private:
     double weightCapacity;
     double volumeCapacity;
     double weightCapacityRemaining;
@@ -18,7 +18,9 @@ protected:
 
 public:
     static int nbInstances;
+
     TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity) throw (invalid_argument);
+
     double getWeightCapacity();
     double getVolumeCapacity();
     double getWeightCapacityRemaining();

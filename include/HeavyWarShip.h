@@ -10,7 +10,7 @@
 
 class HeavyWarShip: public WarShip {
 public:
-    HeavyWarShip(double volume, double mass, int nbMaxArmes);
+    HeavyWarShip(double volume, double mass, int nbMaxWeapons);
 };
 
 
