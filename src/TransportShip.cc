@@ -53,9 +53,6 @@ double TransportShip::getVolumeCapacityRemaining() {
 }
 
 void TransportShip::load(Equipment* equipment) throw (invalid_argument) {
-    if ( equipment == this ) {
-        throw std::invalid_argument("TransportShip cannot load himself.");
-    }
     if ( equipment->getLocation() != NULL ) {
         throw std::invalid_argument("Equipment already loaded elsewhere.");
     }
