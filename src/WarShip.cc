@@ -5,7 +5,7 @@ int WarShip::nbInstances = 0;
 
 WarShip::WarShip(double volume, double mass, int nbMaxWeapons) : Ship(volume, mass) {
     this->nbMaxWeapons = nbMaxWeapons;
-    this->name = "VC-"+ to_string(++WarShip::nbInstances);
+    this->setName("VC-"+ to_string(++WarShip::nbInstances));
 }
 
 int WarShip::getNbMaxWeapons() {

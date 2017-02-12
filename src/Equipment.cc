@@ -25,3 +25,7 @@ double Equipment::getVolume() {
 string Equipment::getName() {
     return this->name;
 }
+
+void Equipment::setName(string name) {
+    this->name = name;
+}

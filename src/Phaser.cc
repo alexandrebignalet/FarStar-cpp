@@ -7,5 +7,5 @@
 int Phaser::nbInstances = 0;
 
 Phaser::Phaser(double volume, double mass) : Weapon(volume, mass){
-    this->name = "P-" + to_string(++Phaser::nbInstances);
+    this->setName("P-" + to_string(++Phaser::nbInstances));
 }

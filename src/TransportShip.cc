@@ -17,7 +17,7 @@ TransportShip::TransportShip(double volume, double mass, double volumeCapacity, 
     this->weightCapacityRemaining = weightCapacity;
     this->volumeCapacityRemaining = volumeCapacity;
 
-    this->name = "VT-" + to_string(++TransportShip::nbInstances);
+    this->setName("VT-" + to_string(++TransportShip::nbInstances));
 }
 
 void TransportShip::setLocation(Ship* ship) throw (invalid_argument) {

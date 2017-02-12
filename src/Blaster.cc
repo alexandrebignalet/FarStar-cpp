@@ -8,7 +8,7 @@ Blaster::Blaster(double volume, double mass, double gazLevel) throw (invalid_arg
     } else {
         this->gazLevel = gazLevel;
     }
-    this->name = "B-"+ to_string(++Blaster::nbInstances);
+    this->setName("B-"+ to_string(++Blaster::nbInstances));
 }
 
 void Blaster::recharge() {
