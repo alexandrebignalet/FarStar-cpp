@@ -3,7 +3,9 @@
 #include "../include/TransportShip.h"
 #include "../include/WarShip.h"
 
-Weapon::Weapon(double volume, double mass) : Equipment(volume, mass){}
+Weapon::Weapon(double volume, double mass) : Equipment(volume, mass){
+    this->equipped = false;
+}
 
 bool Weapon::isEquipped() {
     return equipped;

@@ -3,10 +3,10 @@ project(FarStar)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11")
 
-add_subdirectory(lib/googletest-master)
+add_subdirectory(lib)
 
-include_directories(lib/googletest-master/googletest/include)
-include_directories(lib/googletest-master/googlemock/include)
+include_directories(lib/googletest/include)
+include_directories(lib/googlemock/include)
 
 
 set(SOURCE_FILES
