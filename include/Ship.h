@@ -7,17 +7,18 @@
 
 class Ship: public Equipment {
 
-protected:
-
+private:
     vector<Equipment*> equipments;
+
+protected:
     Ship(double volume, double mass);
 
 public:
     virtual vector<Equipment*> const &getEquipments() const;
     double getMass();
 
-    virtual void load(Equipment*) = 0 ;
-    virtual void unload(Equipment*) = 0;
+    virtual void load(Equipment*)throw (invalid_argument);
+    virtual void unload(Equipment*)throw (invalid_argument);
 };
 
 

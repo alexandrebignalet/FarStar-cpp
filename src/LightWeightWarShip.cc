@@ -8,15 +8,5 @@ void LightWeightWarShip::load(Equipment* equipment) throw (invalid_argument) {
         throw invalid_argument("LightWeightWarShip can only load Phaser Weapon");
     }
 
-    if ( equipment->getLocation() != NULL) {
-        throw invalid_argument("Cannot equip this weapon already used equipped or loaded elsewhere.");
-    }
-
-    if (dynamic_cast<Weapon*>(equipment) == NULL) {
-        throw invalid_argument("WarShip can only equip Weapons.");
-    }
-
-    this->equipments.push_back(equipment);
-    equipment->setLocation(this);
-    dynamic_cast<Weapon*>(equipment)->setEquipped(true);
+    WarShip::load(equipment);
 }

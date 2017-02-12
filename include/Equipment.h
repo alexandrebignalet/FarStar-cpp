@@ -13,12 +13,13 @@ using namespace std;
 
 class Equipment {
 
-protected:
+private:
     double mass;
     double volume;
     Ship* location;
-    string name;
 
+protected:
+    string name;
     Equipment(double volume, double mass);
 
 public:

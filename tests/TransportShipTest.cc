@@ -77,6 +77,7 @@ TEST_F(TransportShipTest, transport_ship_load_should_throw_invalid_argument_exce
     Weapon *riffle = new Blaster(1,1,46);
 
     transportShip3->load(riffle);
+
     ASSERT_THROW(transportShip1->load(riffle), invalid_argument);
 }
 
