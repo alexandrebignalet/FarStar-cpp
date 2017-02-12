@@ -1,7 +1,7 @@
 #include "../include/TransportShip.h"
 #include "../include/WarShip.h"
 #include "../include/HybridShip.h"
-#include <stdexcept>
+
 int TransportShip::nbInstances = 0;
 
 TransportShip::TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity)

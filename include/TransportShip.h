@@ -16,8 +16,8 @@ private:
     double weightCapacityRemaining;
     double volumeCapacityRemaining;
 
-public:
     static int nbInstances;
+public:
 
     TransportShip(double volume, double mass, double volumeCapacity, double weightCapacity) throw (invalid_argument);
 

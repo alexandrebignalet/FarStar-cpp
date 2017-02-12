@@ -9,8 +9,9 @@
 
 class Phaser: public Weapon {
 
-public:
+private:
     static int nbInstances;
+public:
     Phaser(double, double);
 };
 

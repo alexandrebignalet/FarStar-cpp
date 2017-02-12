@@ -12,8 +12,10 @@
 //[[deprecated("The actual norm doesn't use those types of ships anymore")]]
 class HybridShip: public TransportShip, public WarShip {
 
-public:
+private:
     static int nbInstances;
+
+public:
     HybridShip(double volume, double mass, double volumeCapacity, double weightCapacity, int nbMaxWeapons);
 
     void equip(Equipment*) throw (invalid_argument);

@@ -9,8 +9,9 @@
 
 class Container: public Equipment {
 
-public:
+private:
     static int nbInstances;
+public:
     Container(double, double);
 };
 

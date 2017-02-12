@@ -8,8 +8,8 @@
 class Ship: public Equipment {
 
 protected:
-    vector<Equipment*> equipments;
 
+    vector<Equipment*> equipments;
     Ship(double volume, double mass);
 
 public:

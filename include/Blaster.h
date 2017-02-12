@@ -6,11 +6,11 @@
 class Blaster: public Weapon {
 
 private:
-
     double gazLevel;
-public:
     static const int MAX_PERCENT_GAZ_LEVEL = 100;
     static int nbInstances;
+
+public:
 
     Blaster(double volume, double mass, double gazLevel) throw (invalid_argument);
 
