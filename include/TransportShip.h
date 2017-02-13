@@ -25,8 +25,7 @@ public:
     double getVolumeCapacity();
     double getWeightCapacityRemaining();
     double getVolumeCapacityRemaining();
-    TransportShip* getLocation();
-    void setLocation(Ship*) throw (invalid_argument);
+//    TransportShip* getLocation();
     void load(Equipment*) throw (invalid_argument);
     void unload(Equipment*) throw (invalid_argument);
 };

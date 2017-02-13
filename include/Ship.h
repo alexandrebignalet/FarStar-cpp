@@ -17,8 +17,9 @@ public:
     virtual vector<Equipment*> const &getEquipments() const;
     double getMass();
 
-    virtual void load(Equipment*)throw (invalid_argument);
-    virtual void unload(Equipment*)throw (invalid_argument);
+    virtual void setLocation(Ship*) throw (invalid_argument);
+    virtual void load(Equipment*) throw (invalid_argument);
+    virtual void unload(Equipment*) throw (invalid_argument);
 };
 
 

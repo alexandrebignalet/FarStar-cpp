@@ -1,5 +1,6 @@
 #include "../include/Ship.h"
 #include "../include/TransportShip.h"
+#include "../include/HybridShip.h"
 
 Ship::Ship(double volume, double mass) : Equipment(volume, mass){}
 
@@ -37,4 +38,11 @@ void Ship::unload(Equipment* equipment) throw (invalid_argument) {
         }
     }
     throw invalid_argument("Equipment not equipped btw cannot be disequipped.");
+}
+
+void Ship::setLocation(Ship* ship) throw (invalid_argument) {
+    if (dynamic_cast<HybridShip*>(ship) == NULL && dynamic_cast<TransportShip*>(ship) == NULL && ship != NULL) {
+        throw invalid_argument("TransportShip cannot be located elsewhere than in a TransportShip or an HybridShip.");
+    }
+    Equipment::setLocation(ship);
 }

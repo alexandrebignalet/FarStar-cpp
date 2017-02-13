@@ -20,22 +20,15 @@ TransportShip::TransportShip(double volume, double mass, double volumeCapacity, 
     this->setName("VT-" + to_string(++TransportShip::nbInstances));
 }
 
-void TransportShip::setLocation(Ship* ship) throw (invalid_argument) {
-    if (dynamic_cast<HybridShip*>(ship) != NULL || dynamic_cast<TransportShip*>(ship) != NULL || ship == NULL) {
-        Ship::setLocation(ship);
-        return;
-    }
-    throw invalid_argument("TransportShip cannot be located elsewhere than in a TransportShip or an HybridShip.");
-}
-TransportShip* TransportShip::getLocation() {
-    TransportShip* t = dynamic_cast<TransportShip*>(Ship::getLocation());
-    HybridShip* hs = dynamic_cast<HybridShip*>(Ship::getLocation());
-
-    if (t != NULL) {
-        return t;
-    }
-    return hs;
-}
+//TransportShip* TransportShip::getLocation() {
+//    TransportShip* t = dynamic_cast<TransportShip*>(Ship::getLocation());
+//    HybridShip* hs = dynamic_cast<HybridShip*>(Ship::getLocation());
+//
+//    if (t != NULL) {
+//        return t;
+//    }
+//    return hs;
+//}
 
 double TransportShip::getWeightCapacity() {
     return this->weightCapacity;
